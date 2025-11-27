@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria Musical Gospel - Lar Church</title>
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paleta Lar Church - Tons Quentes e Acolhedores */
+            --wood-dark: #5D4037;
+            --wood-medium: #8D6E63;
+            --amber-warm: #FF8C00;
+            --amber-light: #FFA726;
+            --gold-soft: #FFB74D;
+            --orange-bright: #FF6F00;
+            --black-modern: #1A1A1A;
+            --black-soft: #2D2D2D;
+            --white-warm: #FFF8E1;
+            --white: #FFFFFF;
+            --cream: #FFECB3;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--black-soft) 100%);
+            color: var(--white-warm);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ==================== LOGO LAR CHURCH ==================== */
+        .church-logo {
+            width: 60px;
+            height: 60px;
+            background-image: url('data:image/png;base64,UklGRtgtAABXRUJQVlA4WAoAAAAwAAAA8wEA8wEASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZBTFBIWRoAAAHwh/+fKqf9/83Z3SSbECK4Fic4tDgt3uLuJGiBYnV35F2kAoFSSt1wd5cXntACgQiEhCQkEPfN+jnznD/aQkY2O+dtiYgJQJX+r/R/pf8r/V/p/0r/V/q/0v+V/q/0f6X/K3Fp9K+DTDpA/RpGT2IesnbPhpUzO9c1KVJPeXPTfH+Dp1DCNl63qLaixHM71szvWstH3qGfS5O2TjR6BKPyxtl8AAIAqtN6/9LWlQv7N69ukHO/lQDEra1mFJ+x7777KnlMAHBk/HXqjw+GNQowGmSb4bcSICT32Pwqith82kdec5EnB3Dm3D666YPxner6mwwSDf1QCoQQLemnbkGKuHyC558sAFLOoFmzEs7vWjWjW+0AP5NBkn1f/DcCjujP2gcKyhAwZkeyEwhVUEuSL+79/vXBT9eqYjbKL2Vj4T8QomWeeCnIJCL/tl/ddhMWAWwPbp4/uGFOl1pBVXwk19r8fyFETfyxX6BBNP7VFp/I1gi7miv/XvTRn98dXL96UBVFWqHPcvC/EbBe/bB1gFBM1SZtT3UCYRyw5WHshZ2fDQ6SV59kPQ4huHDnrNp+4gju9tV1GxA+XcW3VteQVx9kPh4BZ+ymobV8xFCl3sKTuRrhEzTr3V8mhsirN9KfgBAovfJ5z2CFP986k7anOIHwie0P9i2qpyBprUQkPxEh7szjC5sF8lazz5oYG+EUu3NOLevqg2T2mKRyINiesnl8A1+eqrZ4+3yeRvgErSBuw4iqSG4/n1gehIDlRmTvmkZOFPNT4bvTXYRTsD3Y/XI9BUnubvFauRCC80691ymIj1qD19+yEE7BXXDps55mJL3b3iovAs7UbVMbB7AX2v6187kq4ROc+bHfjAtBErz5jXIjBEqvfz2yrpEtc/N5hx84gHAJuOTmT/MbKEiGN71OgRA1/9J7XUIYMtYe9nW8lfAJ4Ejfu7CtGcnxxtEqDQKO1N0zwwJYCen54dUcN+ETXHlXlvaoimR5I0qEaJY7m8Y0MLHgHzb7UBYmfIJaFLNpcm0kzxtH0SIE8qOX9wuhZqw3blNCGeETwJq47aW2AUiiN7lCjxAt69j8DlXoBPX7+FoBJnyCI/vU292DkFRvfIkFAmWJv01qaCo//3YvnXzkJHwClPy5bmRNBcn10JNuFgjRiqOXDwhSyse30dQfk2yET9DK7m+f3cqMZLvxOCOEOB8dXtA5oDwChqy6UYAJn+DKPP5Ol0Ak3w1HnMAIAUvi5oimvk/i13r+8Vw34ROg9M91I2ojKX/IwQwhWvH1L0dXeSyl+pSN9yyEU1yWvGN6mD+S84dZIsSVdWFxD99/8xnx0fV8lfAJ7qzj73YNQpJeOcIW0eyp22fXVxBCitL55bNZbsIn4JKoL4fWMyBpf8TJFiFQHLN6dKiCGs34PaOM8AngvL9tcjMzkvhHXIR5Z87lTwdPWpdQCIRPULNPvdslEEn9QxwQcGb/J6ZQI3wCLv1zzbCGBiT39zuBPUKIUyN8gmZL2jy5eYAByX1lSxkfvIKafvy1TkFI/s+PtjrAU4AtekmXWgakA9aefuCeAzwCWBM3j22MdMLgdh9fLrB5AMjeP69lFYNegFC94T/Fl6mCc5deW9W7GtIV/ZvMPJwGInPY4zYNb+qH9Magpz++YHGLSsOpf0xq7G9A+qOxbv9vE9xYSNh67vWwKgrSJRW/htN3pbqxcECL/3ZwDQPSLZUqzd8+ZXcIBj/YNbGhGemahhr9N9ywOwWC3VEftKyqIL3Tr+Gk/flOEATgu9+NqGVAOqghIGzpuQKHWwSQu3daAz8F6aOGan3WJKgqcIax/c/VHaoYkH5qrDFmxwM38IQ1NfmXMbUMSFdVfFp+GoN5sqftmVbPhPRWxdT3InB1bKDZgHRWxVD/nQuFXDlSd/f0M+gs1SKOP3AB4Vqz3tn0tJ+inxgC2vx+360R7nHelTea+uglPk2X/1moESG6U/eMqG7QQww1p558pBFRapbba8L8FL1DCe766x0rEamac/nlpwz6RkDT5TFWTAQLGXs7Bhv0C6X+vEvZmAjYcXtdq6qKTlGz1d40lQi64MprjX11CCW4xcZ4BxG3lnpoSB1Fb/Br/tq1YiJ2a9zGVtV0BaXBC/vvYyL8oivvNVP0g9AOPyZYgXhANX1P54aKTtDylYv5QDykLW5Dl5p6QKMuOzKcQDwm5F17r30V2Venc2RMCSYeVcs4MrmJzFOqtn//cq5G+MTYZsXABQFbwsbudWWdgpqFH0h3AeETbKknD6a5MBeE4IKoj54OkHP1n1sbZwfCJ+C80x+90PuTy9kYuCDgTt83taV8U4I7f3Q5VyV8AnbeXNevjtFQb3hkfBlwQQi23P32ubqyLezFfQ+dQPgEd8qBiEYGhJBibDJz3wO3xgUhWv7597sGyrT6A7+OL9EInxgXnH//6WAF/aMS8OxHFzMx5oKAPW1fRFNpVu3ZTy/nuQmnqjVu46DaRvSYxjrDImMtmAtCoCzmq/615VjTRUcfOgmngNMOLgjzQY+vmFpMP5CuAReEqHln3nnGX37VH7o2wQqET9AKLi3tXcOAntz/uSUXczDmgoDt/tbwJpIrqNeSS3luwqnmilk3ooEJlaux3rC1cWWYC0JwyY0vB9dV5JXSZNGedAcQPkFN3Te3hb+Cytu31YL9GRhzQYgr58KS7oGKpKo7JjK+RCV8amrh2Q96VDMiisYavZdezgM+CDgzts9uJKWC+y6/mu8ifGK1LCZyaD0fRNmn4cj1tyyYC0K0kpgvh9aUTqZWbx/LchBOQU3Z8mKYGTFobj17xyMMXBDiyjn7QXtfuVRz6g/JdiB8AhSdfqdrqAkxaQztueRSEfBBsC118/ynFHkU+Oxn1wrchFOw3Vo7uK4vYtan3rjfUjXMBSGa5d7XQ0MkkU+Ldw9lODHhE9T032e08lcQy1W7vH0yT9W4IATnn/m4e4AMCpn1S6pNJXxirfDYq11CTIhxU52BK64UYT4Itj04sKiWQfYEDPzyZrFG+ATVmbh6QC0fxKG54fifUt2YC0K0ssSvR1SVOqamH53KdQHhE9zpW2e3MCuIz8CObxzPcWhcENCKzi9p7SNtFP9521LsmPCpOYqOL+4cbETcmmr2/TTKClwQAvasXYtDFTljHPDVHYtKOAVX4oq+tXwQ135PTfrlkYq5IABlsZvGmSWM0vij0/kqED4B5/4+vbmfgjg3BHZ462SxCjwQAq7iG1+285EsRjR3f7odCJ+ALede7xRkRAI01eqz7IYduCAE3Nn7FvoYpcqAyDi7RvgE1Zn8Rd9QExKjYm484Y8sDbggBNtSfhgbIE2UZp9GF7kJp6Dlbg5v7ofEaajSbtEJiwZcEIIt11Y3liMm4/yjD1xA+ATVfm5+h0AjEqqxeo9lCS7ggxBXxol3kCJBhn+fbNOA8IldaZ/1CDYi0So+NSduzlOBD6I5k7eMNsqOZstvWjQgfILbvm10IxMSsrn1ovNO4IMQzRa7pr3cmH4wyw2EU5f18sLWfgYkaEOVXuuTVE4IuB+emIEUaTH010Q7BsKn5nCu6BpqQAL3bRy+14X5IIAdSb/3kRTtVsWUqEA4xa4DE+sYkdiVwLD3LmmYC0JAzbuxpJlJPoQuOpmjAhA+nWXX54QFIvErvt2+ynDxQQDUorNzfKWCoqDRux66AAifmjP5ow6BCvKIxjqTT7owF4QQcKX/0l8eKMjYbm2KHRNeXZafetcyII9pDHv3JgY+CGBr4icNjXJAMQTNj8pxEj4BcGnU9KcMyKP69txo0YALQrCz9MKsYEUCKD7D9me7gHDqdiYt7+SHPK2p4YyjxRpwQYhmf/Rrb5PXp7RefdsChE8At2X7kNoG5IF9W751y46BC0K0kpsfNPHz8kIWJ6iETwBX6eX5zX2Rh6464IcMF/BBABefmeKveHV1lzwELgDc1qRlTwcqyGObGr94tFQF4IEQzXptVrBX13BlFhegWR9tHlbHhDy6+ZkVcWUqcEEga2UDr67RFzkcAKiFp2c18UOe3lDzhR8fOgB40HK+bql4c03W5LIHrqK7K54OQAL0r4MUrhDyaTr7eIETAwe5XzdH3nyzyBzMGID1wZZhtUxIgI3DfwmrzRlCAV1W3sh1AbAGBd+08Oqar8tlC7Caf3ZhMzMSYL2250pcj95rzBsy1R70Y2qpCsxtDFO8uWbrcoElwEVxkT2qIAH6h33/yA0EFx3tVJMzhHybvngwwwnA2LetkVcXmccQgD1ty6h6vkiATSZeLQZCCAEt48NmSOELoYDOS6KKMbD1XRsvL5cZ0Ny5pxa1DEACrNVle54byD/jwh1da/OGlBpjt6fZNMxQ3rdtFO8ujxEANf+vL3sFIRG2+uSuG8hjgj35zWa8IeTfZuGRhw4Adja29uqar2MEsDV585h6vkiATfofKnABeXyc+0v3UN4QCui2IroEY2Akf2Mr5M23WM8EgDvz8IIWAQriP7DzhkwNyBNjS8zi5gpvyFR71ObkMg0Y+ba1V9fy61x6ALjkyopeQQYkwOZzzluAlCvO+aFXIG8I+bd+5Wi2S8VMfNfWqwvbkItpgWpP/mNkLR/Ev1Kn3w85GEg5Q9nFOc25Qyik91d/FjgxMPB9O6+u5YY8oIULz77awh8J0Nzl05gyTMofOzK/fTaIO2SqH74jyY5BcoQxoCbMC0EibD59f55GqIJWcuGlZtwhJaDj+2fzVKDX3rv7Jp+a88IIJMBqAzem2jVCG9z31z0XyBtCSvXnt2Rr1H6QHY5zgwTQ8s3oMpWwqOafmNeMO6QYp8e4pc/ZF7irP+7XTAyETc2WvL6nmTekjL8ugQbxpVTt+VmsCwiz4C44Oqshf3+55M9gvpq9cjzXDYRlzXH3y66+fKHxf7nlzxCeao//Kc0NhHFQCw7ObMDZdcnRioVzw/jxfWZ1jBUIh+BIWNPDzNMEBn7s4NW13kTPeXEkN/Xn7C5QNcIlVgtPzKvH0aSb1Ap+7uTVtf2+gN7l0Qofgc9/f9cOhFtQ70W25mdKDL1fn/Hq2n1fQATV8OOLxRrhGXD+jvBavITfovdbZ+/uB0GFTtmaqaqEc80av66NkY9pt+n97vUBvVHs+bT/PN6JCf8Y5+2bUp2L6Sx08fLyBVTttRP5AESImuPWygY8zJBv5kE/pbiBiBK0nD1TqonoD++u/Y8FglFCVvxVhoEIFFwJX9Zm7xa1ws1dvbqOPzNwZTRL5ojduRoQsYKWu2e4v2hKdvX06jr9UkioXWXI2OO3JAcQ4QI44laFsDWdXune57y7X0VifjvKCkBEDJB/ZFQAUzH09vX26p5mwMWKgqYfS1OBiBps91b4KyLZ7+X9Jgol8Ks0m0YEjrVHR/qa5FERA2MYMKGXrxYBJkIHzZm4yqDoCa23Z2pAhA+46Eh/HUHZUQqERwDGCIAj/kUTE9NY6OPVdd3CQNQYRP+qmweny2m3utkiBBy7jUxMYeBgX+9uazEDoxmIVgn7mjV9RON4h50xop4wMDH5puTotk0MURxg+6kGPqjeGafGmPu4IgRccrCfjFNL3quOEEK1dlms+sRVFq6ypjkzRgSivysNthS7mdJOGAVxSH6MYgKYUh2H6hvQPys1llstmKWTbEyiBqWH+3t13bczoQhGtX0Sih7XPDrboTJ0wiAGyxH5MVos2JE5yg89YZNEqwvYMTIx8Qa9o17eDhZG0VOi2AFsOd8MPXnjy1YVGFGPISYn/+WiVXZ0gFfXY2eJJwFw5K6pi8qz8dEyDCKZdI3eMS9vFwNXxAGa9f706kq5oIa/FmvAxlE2JrIw0Kvr6UnAkXu0HSr3ul/muYEFNxvKhCgnLetxSQbgztnQBFGs9VGWG4Mg0LjLUuwqA6BZ7swNRVSDXkwqsoEgxl6SHL12M3CVCTc1cGbv72lAlP1HXyt0gRhGX6R3THpECQDAmf5FU8RgzwtFGtA6wsaI8w5aZccGSA739ZH8YWviu/UUFtDT+4s1IQw+R++o/ALH2ZEBiNGOe+wggkFn6R2TX1r2XANi1TA6idZhJpQXJNAN/tTkuf7M+I25rgkADThpl384ZQ5D425hOs6DbPQ+aJM/o7iDtHkMjbmp0XHsZ6PXPistqwxLnRvAztgYTMe2j5H99I4PlB5jEX/zGBp3m9ZehYme++TPzYkCmMvQ+FhK9j0GJnrspVZ2bIAEiqKVwtKEeEq2PQoT3ffIMZUOTpnH0MQEStY9iMmuu8toWY8P1BUm3aFkY6TLTj0glaXJd4XwzA4JNMmTmAXxtD4w19N02k7v2AAZ5s/QHVq72eiwxQKUyvQV+y422v4uxaI9h2MnG21+K9XhWv2qAwBbCUJo+VOJ5NjDwuSKV/MfiuXGsyzEVCjsO9ho9r3s2FvRmETLtp2Npt9Jj1J6txhAQomntY2Rb6lZvb19QlCuUZsjDutWNpowcNy7e04MBmopLE2kVbaFjcYb6R3z8vbTU29PoacIJU4IT30jw9A1N7UAcWxmo8H6IrnR+4CFgan0lOsCmUDLwki9tYX0+sufwJsiiaX1Bxt110gf960p9Grf0J3U2wzUv6sRSnPZ8aNWtpmNOl/ROz5Q/jS840G2MPIlvRPPy59GtyscawrkRp+DQmh2s8KxNp/eQK+u72EhtLwtkjgxfJVH7bh31+9ImQjCYmmlMmSmt5WRdUVyo/9RIbQQycR4T/G8/lTzsxxqJyRQq9u07s9hx2+CGGqszpNgreMqHCvonXzBqxtwjIWp9NoJJQFEUH0pvVMSqKNIJooh9FMGBnl3x4XQWSh3hBBCr+zUIEX6dI0VyAQxBH8iw7qIZKIYguhZTw/26gaesHqCZJFsZqPqh7nUznh3L5y2CUDpnoDp4HuzmcJ0LD+wUeWdbFqO80O9ukFnhNBLIL70vmcjgIELw6QP6h2nVTD838mhdnG47IgNpzcgQRx+k+4KwfSWDBuShMUx+R6IAL2RTW8Ykj7DkwUyJUkMr2VJjrN2IdyrcLySTe3ScK9u8DkRKKOSBTKV2iZGXqbmvDzCu/uPECbcpwSJs9gxhydhOmUb2FAWZ9Eb7t2ddwgATRRKMqWSr9hAiyTHECYi6E1OpnV3pjgKVjCygIER0keZ6kmWsZIpOS4IIeK+5yhcqgjiigSa7kGKmMmiN9LLc4pgRjKtRIEULkUyaOglESCPsoyVTGpR3t3wqy4GpjGQ5EGWiwG7rkmgmckiSfIQ0V7eFSHMuk/rrgd6RAmk0Gx6MxiaSu2/BKFeHy1/XqR2p+KBY8ZIj+kVsPmy46oIlBdTaCVMr2gQ8PJGRrvpxU2jhubcpxU/jR0/UbxEDceM9epGXWMhgt7citg42RHLwLyUCsc8anDLuxsZ7WJgGgOpHuQz3UCZW/GY+1D6xM2gZpijP7ljdagoBm7TM+ouY/6kp92JoGaogOH4ybLjbrgAplc44M4U6TGV3lyhJHuIhMne3TWndxY/yasbLYZ5nmSFGADHeXnRQniJWoJAilYKQouf7NWNimIhnN78tArHPGo4dqLizY28KoQFnmQVK4/oAHZHjzR4c6MulgG1OxH0FlKLn+bP0H0xzKcDjszT82ojb77HljwMlNSEaSIIEMdqRhZkUgB39sXlnfwUr67K8+ujc+0apQh6ix54kM95A2y9ta6/nwF5+UbfPpti81xAI56BxRUmwNaE7wdVNSEJaDAO+OHPPBcuvzgBJIjkC1ayygVUd9aeqbUMSBr223C9wK4BNy97ki/5AXBlnZhXH8lEo7nPF1dyHRjKJT7co4SLQVn4ZADuR6c+aYuko6nX+iu5TgxcvOJJvuIE3I60Nc9VRTIyaFhkVL4dwxPFRVBDr6XRigv3F8caVjIfD7Alddus2khWBg+LjC5yATD3OgMBDKWIYcHjgb3wzJuNkMwMHhIZVeiAx4ufJoAIgaxl5KXHAbXs+he9DUhyho6I/E+hEx7nzgwR+LMTIQY059G/adaEnycoSH4aqo+MPF+k4X/R7s2ugM16+E/gTN39Uh0DkqPVJ3x3N88N/5Q0pwI2PeNv2Jl3/oMwA5KndWb9FFvsxn9LniuCAIbui2FaBhCM8y6vGqIgqao0mLM5vkgFoiXN4y8+wp+hFDFEpGO1OO2XcSYkXQ0tX9+WVOpSE+cp1N54QC2cHXNECghhWpol9fDrzQxIxprC3tidUBg320gvXRx+glAmXT/z6QA/JGt9n35r566hiLs4j4PCFo8MQDLX3HVYPf7iPY/RV0HSWyjhgpDi//0jlVakjpChx72Z9d8R4phK+d/XpjI0ldo6/SRWl3rrv33c141uT9Gj3vEk6/WD9zzJ1/rBh4/0uE8e6nFLPEmkfrDMgxSu1A+WZgkknA6Unhyn6AXKp3kgkBQKamn8H4OrId1wSa4GtMzMmCPKDeyWuN9ntvBHuqFp/h23BlRiWZqWWj6gand/nhYWjHREpfWqs8kqCGJ6WrloWvrWuc2rKkhX9K3X/INDCU4AITwoB3Dbji5uGaQg/bFOo4ifzz90uaB84liakf5EgC2XP+9X04D0SAVVqfPcBzvv2zVcHvFT/NiZmfEk4LixZnBDs4J0S5/QtrO/+dOmOZ8IxzH18PE0Lf2PsU+ZFaRrGgPqDv3qP0UafgJImOLLjN/MzMeC3JOvtzArSPdUfGv2WbI/2Ybhse5M9mFnRob6b5r10uruQQakj5oCG4T/HFOqwWPcnWxixndaJvwT2GK/7RtiRPqpYm44bN3FPNX9TzhhopGdiHTtH3D67+PrmpC+qhhD+y49ka3hv7kTJrPjE54BhBAt+9CCpj5IhzVUffrVfSlOIESLn2RixjciAxPIO/phJ18D0mkNDV7ccrsUq3em+rITno7Lbm/sYVSQjqvUmbjpalY8Qz6TExN+mFBdQTqvUrXvf63vb2Kn7+cvNUG6sCk4UGHGEBSCKv1f6f9K/1f6v9L/lf6v9H+l/yv9X+n/Sv9XihkAVlA4IIgRAAAQiACdASr0AfQBPlEok0YjoqIhIzYowHAKCWlu8pI3/HmkwXoBQUrct+dY4oA3kTydNVC82/zH8PP1V8g/61+Pf7pdsP5P9ff3J0C33d/iewnsl+DmoF+Pfxv/GeGbsVwAfkX9C/4fGf9iPYC/mP88/6n9t9i/87/o/H0+o+oF/Hv5Z/wf7769H+V/k/yA9pv5v/hv+t/ovgB/jH84/2/9r/zPvi+tD9lv/t7iX6t/8T8/xN3yifDR82rnWiW959o+bVzrRLe8+0fNq51olvefaPm1c60S3vPtHzaudaJb3n2j5tXOtEt7z7R82rnWiW959o+bVzrRLe8+0fNq51olvefaPm1c60S3vPtHzaudaJb0GLHAArVyCJg0Q5W/5i8m2qa7TroOvcUMqEv2XeiQEHwv6FCdp6Qnw0fNq51olvdeAZW2KID8TgS/96SRy9mSA7hWs2dmJlm6MT7UQfAS302orXr8cpLe8+0fNq51olIr+wj0UGJYPhBosetYl+wbp9VWL/z5tunw0fNq51olvefCpG8HAuRK0OaqEcYrMzxmwDbhW0JSHHQrnWiW959o+bVyEf0C8PX1yZerMyHifaiIHk2GkT1ENgcLwQNQ/VDw/CRhl2vtHzaudaJb3Y33TxXPfOC9OGUOaCvZHmmJ6P8flDpsOIPZHzRCekdxVONuVrbAlptKyj/46QnWiW959o+PM8P8FaKXLCLDoE093lJoFQKWcOSrrgmHmrtb1BijTIJIqvbwC2SCORYL60S3vPtHft6VoET6/cW9YDUMkjPAEOkZOdAvP+rkHISYCe1f8g6NV0sp8/gAJrw44/EXC/m5iYwxncbe8+0fNq5G2XyDhAUe3MpjlwqWNyIrW4hBcAOOsRbD9jOq4Hmg344Vhk0s0T4aPm1c5DuQdpWSXi7uH2RRE5t4OnD8A4lQ2tCieQdp+larnWiW95tKx1I6UoL0RQ9C9vodEGY1LHkHafpWq51olvebUAAdU5ZG+uIKnY3z/70cxHYDHfKJ8NHzUFA22mlAkU64Vn9M5Nis0kv0SKnC3vPtHzasDXZ+vliHcnrDcyK3SqnFaH7MLDw0fNq51ofdpgun6BAGCFeR0ktltHzaudaJSi2tBMKbjArQPJk3ak288Fo2JmoeKFxxYKpqfOklolvefaIXKclok/yTEGl4uifiPS3z/yWIdK3YjIVe2GZFSvYaSR3GqwXlMCd8onw0fNq5HS+C7RjALW0stVVe0fNq51olvefYTq8ItrBIGhKGUaBeQ4+TT0VwqBng4c0tetbaUT4aPm1c60S3vNqgghu8WZ7wEpqkYz1NA5hnnCQ4DJaWiW959o+bVzrRLe8+0fNq51olvefaPm1c60S3vPtHzaudaJb3n2j5tXOtEt7z7R82rnWiW959o+bVzrRLe8+0fNq51olvefaPm1c60S3vPtHzaudaJb3n2j5tXOtDsAD+/5L+AAAAAAAAAD5+aorfmC9lS/DSEi85ygf/A48VXXmZrkzX3zbblxxsOxrQfzX1joC2s8zw6aN+jjlXLkDcaBngAwTfAFCSCfg+t1s0r5iXylhpdF/lu3VdTzdxJy6ZCQP4aaYbFJKWMBQ2E2sB/tueVuzmsjUq0Q2qEBeetuy+kdlmCm78cXDbsfoP84UceryLHiVd5KPYbImpWbQT2NYQvSUU5wDe6O0vUA/J/IpZ8UM/+aXRvcr+kKEMXSqD8Y7GirFupDas2fgYzuVzwf5RQd3QChd5tiJAe42/4qmhJUq3fBvSA4X3kPnuCghGfo2MTYanO3ClWBAdtOq5wq9v9DLIsuHr3e/f0n4Cvd/GHREcMXZAbk3kkKjqmkTFJmsAWoWV5apxVeKTyBg4HJcDEFOcjmLTMsRSAJOAy3BOpYwsjR0D6nVAwRWbWCJnPwtLgNNTg/FDmHIjX0PhH+5vTo2SjD49ICdJkFBjy+TtFzxnwStj6jHjADX8WUCidSWICErMrHfI2111t3lHInfjK+Smqb6xq1wWuNcO7RnIdu7VfyhuXeYcl2eNQR0KOFiPAU7C8Jm6WOaxs545jlMK0mZcKH34XTkvOGGF3jHcvs/EsqIYrLFcMKB8LFE6JPZJGMDKpH7G23LBbSEbm+AFaWfFH8HYqqnDOO7Yd1qgnkYck7WzaXN90V2r5DBl4mGkW80RlpUBhzdwI7Q/vYwLTh3G/a3GJAUXMwTI6SDqUr8QqzYDptLr4GUyqZRA4w0gFNcvpJZCkDuwrAG2IHHQGCbYNEJTU6/KbqE8T3odpZ2XguCe4XoNHsAR+Xiub1pay7szx7hqQmtJoPq/zdufx2TjblIOWDLkaZd0OfLo9y7WFUi7hEFj2haOpJCE3gNVMPVJBmPBMJW8P4L4J8jh4jM7vLW0gTMM1MtM6Y7oYJLiWPR1wCsTHT0528LvZL4nJ2jPIPOpnX28MA9NUygVmd/gmx5JnmUUZtHebPShCJqbl/1pbze69edtA+GH74dkciR5JJFJMPdNVWGOwJaAoIz7qd9sxog2wJlUuuKc2K6EWqHbKEF9e0yJCqvagjDQa/pCohIzHbG1JHdBwMWlTQy5mKPkZV6y8Cw5ObpYacFZtwfZ2XX3kNXQYU2wI249hCAtNFJkx4/65V33SFwJkQ/ZMwi0XXuoO3KwDzf+h9dOVczO73J333f9d/+5PbTSSTs/ATWZoKTvwQ7kaMqqXo7mPwX2hS/4AYJy5N4/2++A5LLpX4BNlCneAh4BTh4W47IqoimfI/5g6sfnDApuBh3HgmVqOW05UJdAbgGDdICWaE9BjKYEWrg6lo4iZ4jixldp9/ZAPUJZrxQuAAAnqQGevguSkGhPNcKmeZVIlsqIyzLIAMT+1u4nN+4AUNlNgqEkjyHV1oNEJdMLlUxr2cwj8EBfpTSfON6bIeFoZGNW9++rNA9vrbB8AY232vH2U8Zsjl1gcSO/sdJef+2OYy7NQAqdPsVWnHa1KRwf2WgcNjrbmMglJCpD/wybtCtzmnbwKE5vm1arutVAeXWE4uvP3ZU33mauGMU4B7hpODD2kd/TcJujedq2vcZQSN599ARIMUikn5TEE8E7OaGQAc1BCWG25eQTUpwKWKzDBbg8cIMMAchrjSZU6pBVkvbXkMyttsv/6TX3zn9/RFcrKX8e3g213kb9qXH8aDMSZblqIyYZPV/KQzxKFjRWWcVPeSUHr24YtCSz/MpXDrMGqi7vqW4sANdXAcVpixWmjozsklMvDzEVU/vjOdR25IWPPjLv4FJa3cbx0No6+sNseXP9BimR0wEWTrtoS/Pk0Wf5PAJWmkiVYxiS61YjrZ0uuTFAI3C+ZjI+ixLt4VfW8sF1bOt/IUALa2O2g6ABErXD/z1c4hNeeLm1ZQxHd9AkU1qz9xHds+d/u+S5niUXVjKAGJSkROCSU3jQQ2v/Yt6xtZ2UDoZDfjp4px0mOFGW+5iwKJoatGF0uUSd88LXop73JHQM9aSBkAEttA9HuyfHDSKxYu/J7V2oxdX/go8B3q3aUGbovXYOndAbyXL7LMCBxVTd112nCdN6UAA30gM3FDoLycpNtn+8C25WHtv7rTx//HFvT799dfryaBov4F6zsWsACdySOKpG2gk56pImRvNqODVcPCyQadskIw8/iCui1K7b/ll3docMH4sNPnvi+9PJxfUtosi08eItZZnWhmttv89SBSin/qRcU5VmRAF2EV/JM6dxf4ZeWvGBVpNi2P+8Tk3sVgzVeF3DI9o347/Rtk3Sj8kCd6uyDHPLsM/C/7pDbDSeLQG7MbufTuKKxxqpkmwCgSp+SmRPjU7IB5JLGJKoa9KF5z/w2InuuGKwD8n8Bk4amqxZvMoQ0jMRBIhG9liwhDlTQFVBMmNsHHaQctLvM2/8ijrlNS63qA77NpGlL9eoUi72d/KeTrGkpG4rxpEfQRqACO3/hY83nmXF1JlLV7M7OXQ92RFhWbY85RbnTK+/vUbocMrLEzqS5ybZXMoSNSC8uIR9ISPlNfrQF1zVP1BHZFlS4Iffrf7LoohDNGkJQroelyTv8xO1/sjIxrJue0yNezM9CajRhu8nat0HoQyZuhIiZXwGxGlVBtT1t5mpW7SAaaSAjyOOGv9FdRyTfU90Hk/7hiBxrYtnPfzeEwOJmsiY9IG2B46Glbz8wdv00RcVGqGcZL5ZLR/p7HDdp4Zh1/BIuVIcYrlV7eyQ14MGjmaU7ELH2+88KVHcbFl31oK/xTOmBE32y+q913xG3wtBFxUwMXOP1g8fpY8/stcElDwBLNTDzZiQeBvlJ4i7ATzzmqA7t3+5RzHk7w5DHzWdohHAH5qmbYxjfNydrJR+Hq/fxch0z2Zv94nWnqY9tKYYTmIWtEjqrGD8vOWexuTX5aa08SVWoIner8nSUowIa3pFJUzyShgEzkiZAgpO3Eo/hsimDohBZrFtv2WDARss/yh4nPti/WC+nQ1J+jMb0NzRARQtIlCTS+wdN5LCFMAGKQsxAVsuFUetToLEDTKc8o58iproOQ3RFoSKS+hdzpFGZHdYRhDMr9k9KG6hFnD8omWiRKGq7Y53Ff4ObGH5y6gz/Qf3M4P8hF9QjVspPoUc5XUtWEAOvSELG8rgedxip5kIB26HySyJsYAuGvw6epFUcQ8wYVD9oT/k4TM6Q15/7QVDTa3jE3A2zABzTcNjh7rh9HjLz/BglfBP9/R5T3a6YXrBclK5mZk7NeXgS3r6VZN0DUpVYMN/r+k+HNg/h0PKvHCPo+QL0iFa6mRvr6+TOL4C8g8ZaNIlahR1iUh9mxzeJ+NviSOLwRaEZ7FRG5wBEx4+rFhXOCYDHoIJoaW7M7FUvUz125CkPGaStiDdDNBemfFUy4ec88Ris9d5Ghpt5XAZGVyXGUf8nC9/DeWqJ+vNOvPrCydGzjLbMh02uWRkT2ISKKZEfB+7vg7qDmDUnj94fEi9JBmA7yIRTSf5YgSEvnXWFJEj2UdOAjHeN3HBtPmE2HKQbUh1zM1Fq2FIy+LaChQxMTJqypDSfznmzpQ5fviebKvEOAJgYSIesYerok80X4wAox7oPRWReh4BnjRkppq2hr8Kj0oLzRzRThM9OhC+/iI0disVozwdFqRfVycEi22/YW+O6v4xM5hD8w47hY7qNxZ1Czj6azMuaeV7Wv/7PdhpVmgsMhPhj9yPvP53l871g5tO1f8N7AuZeVWArmgZOFA43OnuT5tPxeJDM93h9Tj1VVKJZwdvYM+aNmVq91B1AQBXqz1wgatwASnXAlaa0lbHjNQtmI8gdoEVxFJMGHp5cUePfl2pqIfdk3wtALuPZuSLfVYxtDQCBilNXA5lWEgvUdrgJb5ZVD5LnM3YBWv5DUzIzT72+hWvCeYLaNh+FWXKjMYy97yqqKWmr/7vVpt2Zl3lxzbTTRTP58M/VBX+uAEyHcTOlFW7jBbVRivzs/m4z1gBO73k0YSmztLhhBTAN9fzdzRBhhJ1/ZsrNHkALLfM0Ekwk9h5cnvRLL5qM4A8XthiY8iti8EIR+o+FNdJLk1ddqVpbIRcfwASUDEJ3JMLSsLoa3/6L+rfqG8Ll6lB4UA8efNj9EMHPDfAchat2XFMRke/Y9maOCgHsgWqCe/YE2Sc39TH5WS229z/eqSnTb0holAwYLgomb/S5b7pz4MN/hzLDGTDH6HUcTIo8EgA+PlhQ259tXEk2D69ezh7kq1Yq7v9HW9stluu+B7xo52iZGc6BNQL9ly2NRCmZABXrElimKQr+Lm4AFi0RPYwmenQhgNw0GO5kwPKR717elZd8XixiI50znj+H5+DeWprIdpCewt6eQfDfB5kFikWoIyZ2uFVUkY4NSpxb4WU0squFFH+SQolLMOJeENAgQB+/EFHjSvGEfUWejeoi3E2dqlHFfuCI0XgABpbPZ8n7QcnoueBNnPtNFgtOicpri0+sdUrPKebb2wqJpGB8bI++jgkhsHZ8AAAAAAAAAAAAAA=');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: brightness(0) invert(1);
+        }
+
+        .church-branding {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .church-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .church-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .church-slogan {
+            font-size: 0.75rem;
+            color: var(--gold-soft);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== CAPA COM TONS QUENTES ==================== */
+        .cover {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--black-soft) 100%);
+        }
+
+        /* Efeito de textura de madeira (sutil) */
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.03) 2px,
+                    rgba(0, 0, 0, 0.03) 4px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Círculos decorativos - tons quentes */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 8s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        .circle-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--amber-warm);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--orange-bright);
+            bottom: -80px;
+            left: -80px;
+            animation-delay: 2s;
+        }
+
+        .circle-3 {
+            width: 350px;
+            height: 350px;
+            background: var(--gold-soft);
+            top: 50%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1);
+            }
+        }
+
+        /* Cartão central da capa */
+        .cover-card {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, rgba(141, 110, 99, 0.95) 0%, rgba(93, 64, 55, 0.95) 100%);
+            padding: 60px 80px;
+            border-radius: 30px;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 184, 77, 0.3) inset,
+                0 10px 40px rgba(255, 140, 0, 0.4);
+            text-align: center;
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+            border: 2px solid rgba(255, 184, 77, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--amber-light);
+            margin-bottom: 20px;
+        }
+
+        .cover-tag {
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold-soft);
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--amber-warm) 0%, var(--orange-bright) 100%);
+            color: var(--white);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .cover-icon {
+            font-size: 2.5rem;
+            margin: 0 15px;
+            color: var(--gold-soft);
+            text-shadow: 0 2px 10px rgba(255, 184, 77, 0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--amber-light);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 100;
+            text-shadow: 0 2px 10px rgba(255, 140, 0, 0.5);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* ==================== CONTAINER PRINCIPAL ==================== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: var(--white-warm);
+            min-height: 100vh;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==================== NAVEGAÇÃO FIXA ==================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--wood-medium) 0%, var(--wood-dark) 100%);
+            padding: 15px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+            border-bottom: 2px solid var(--amber-warm);
+        }
+
+        .nav.visible {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--white-warm);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--amber-warm);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--amber-light);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ==================== CAPÍTULOS ==================== */
+        .chapter {
+            margin: 80px 0;
+            scroll-margin-top: 100px;
+        }
+
+        .chapter-header {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--amber-warm);
+        }
+
+        .chapter-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--amber-warm);
+            opacity: 0.15;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            z-index: 0;
+        }
+
+        .chapter-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--wood-dark);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+
+        .chapter-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--wood-medium);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .chapter-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--black-modern);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* ==================== BOXES COLORIDOS (TONS QUENTES) ==================== */
+        .box {
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.6s ease-out;
+            border-left: 5px solid;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .box-amber {
+            background: linear-gradient(135deg, var(--amber-warm) 0%, var(--orange-bright) 100%);
+            color: var(--white);
+            border-left-color: var(--orange-bright);
+        }
+
+        .box-gold {
+            background: linear-gradient(135deg, var(--gold-soft) 0%, var(--amber-light) 100%);
+            color: var(--black-modern);
+            border-left-color: var(--amber-warm);
+        }
+
+        .box-wood {
+            background: linear-gradient(135deg, var(--wood-medium) 0%, var(--wood-dark) 100%);
+            color: var(--white-warm);
+            border-left-color: var(--amber-warm);
+        }
+
+        .box-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .box-icon {
+            font-size: 1.5rem;
+        }
+
+        /* ==================== TABELAS MODERNAS ==================== */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--wood-medium) 100%);
+            color: var(--white);
+        }
+
+        th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #E0E0E0;
+            transition: background 0.3s;
+        }
+
+        tbody tr:hover {
+            background: var(--cream);
+        }
+
+        td {
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            color: var(--black-modern);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #FFF8F0;
+        }
+
+        /* ==================== LISTA DE MANDAMENTOS ==================== */
+        .mandamentos {
+            counter-reset: mandamento;
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .mandamentos li {
+            counter-increment: mandamento;
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--black-modern);
+        }
+
+        .mandamentos li::before {
+            content: counter(mandamento);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--amber-warm) 0%, var(--orange-bright) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        /* ==================== BOTÃO VOLTAR AO TOPO ==================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--amber-warm) 0%, var(--orange-bright) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(255, 140, 0, 0.5);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(255, 140, 0, 0.6);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--wood-dark) 0%, var(--black-soft) 100%);
+            color: var(--white-warm);
+            margin-top: 60px;
+            border-top: 3px solid var(--amber-warm);
+        }
+
+        .footer-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--gold-soft);
+        }
+
+        /* ==================== RESPONSIVO ==================== */
+        @media (max-width: 768px) {
+            .cover-card {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+
+            .cover-title {
+                font-size: 2.5rem;
+            }
+
+            .cover-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .chapter-title {
+                font-size: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .church-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .church-name {
+                font-size: 1.1rem;
+            }
+
+            .church-slogan {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== CAPA ==================== -->
+    <section class="cover">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+
+        <div class="cover-card">
+            <div class="church-logo" style="width: 90px; height: 90px; margin: 0 auto 20px;"></div>
+            <div class="church-name" style="font-size: 2rem; margin-bottom: 8px; color: var(--white);">Lar Church</div>
+            <div class="church-slogan"
+                style="font-size: 1rem; margin-bottom: 40px; color: var(--gold-soft); font-weight: 600;">Lugar de Amor e
+                Recomeço</div>
+
+            <div class="cover-icon">♪</div>
+            <h1 class="cover-title">Teoria Musical</h1>
+            <h2 class="cover-subtitle">Vocalista & Backvocal</h2>
+            <div class="cover-badge">Iniciante</div>
+            <div class="cover-icon">♫</div>
+        </div>
+
+        <div class="scroll-indicator"
+            onclick="document.querySelector('.container').scrollIntoView({behavior: 'smooth'})">
+            ↓
+        </div>
+    </section>
+
+    <!-- ==================== NAVEGAÇÃO ==================== -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <div class="church-branding">
+                <div class="church-logo"></div>
+                <div class="church-info">
+                    <div class="church-name">Lar Church</div>
+                    <div class="church-slogan">Lugar de Amor e Recomeço</div>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#intro" class="nav-link">Início</a>
+                <a href="#cap1" class="nav-link">Notas</a>
+                <a href="#cap2" class="nav-link">Intervalos</a>
+                <a href="#cap3" class="nav-link">Acordes</a>
+                <a href="#cap4" class="nav-link">Harmonia</a>
+                <a href="#bonus" class="nav-link">Bônus</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+    <main class="container">
+
+        <!-- INTRODUÇÃO -->
+        <section class="chapter fade-in" id="intro">
+            <div class="chapter-header">
+                <div class="chapter-number">📖</div>
+                <h2 class="chapter-title">Como Usar Este Material</h2>
+            </div>
+
+            <p class="chapter-text">
+                Este guia foi feito pensando em <strong>você que canta no louvor</strong>, seja como vocalista
+                principal ou backvocal. Aqui você vai aprender a teoria que realmente importa para cantar melhor,
+                afinar corretamente e harmonizar com segurança.
+            </p>
+
+            <div class="box box-gold">
+                <div class="box-title">
+                    <span class="box-icon">💡</span>
+                    <span>O QUE VOCÊ VAI ENCONTRAR</span>
+                </div>
+                <p style="color: var(--black-modern);">
+                    <strong>Explicações simples</strong> • <strong>Músicas conhecidas</strong> •
+                    <strong>Exercícios práticos</strong> • Tudo focado no que você precisa para cantar melhor HOJE.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 1: NOTAS -->
+        <section class="chapter slide-in-left" id="cap1">
+            <div class="chapter-header">
+                <div class="chapter-number">1</div>
+                <h2 class="chapter-title">1️⃣ As Notas Musicais</h2>
+            </div>
+
+            <h3 class="chapter-subtitle">O Básico: A Escada Musical</h3>
+
+            <p class="chapter-text">
+                Imagine que a música é como uma <strong>escada com 12 degraus</strong>. Cada degrau dessa escada
+                é uma <strong>nota musical</strong>. Quando você sobe ou desce cantando, você está passando por esses
+                degraus!
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nota</th>
+                            <th>Sensação</th>
+                            <th>Vocal</th>
+                            <th>Uso ideal</th>
+                            <th>Evitar se</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dó (C)</strong></td>
+                            <td>estável, neutro, confortável</td>
+                            <td>região média; fácil afinação</td>
+                            <td>músicas congregacionais, suaves</td>
+                            <td>o refrão precisar de impacto alto (fica baixo demais)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dó# (C#)</strong></td>
+                            <td>médio-alto sem agressividade</td>
+                            <td>região média; fácil afinação</td>
+                            <td>subir meio tom em modulação</td>
+                            <td>vocalistas graves; exige precisão de afinação</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ré (D)</strong></td>
+                            <td>ascendente, energia equilibrada</td>
+                            <td>região média-alta; confortável para muitos cantores</td>
+                            <td>adoração com refrão forte</td>
+                            <td>cantoras muito agudas (fica baixo demais no verso)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ré# (D#)</strong></td>
+                            <td>cor emocional, brilho intenso</td>
+                            <td>Início da zona mais alta da voz</td>
+                            <td>modulação, rampa emocional</td>
+                            <td>vocal masculino sem extensão média-alta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mi (E)</strong></td>
+                            <td>firmeza, resolução, brilho</td>
+                            <td>região alta para mulheres e média-alta para homens</td>
+                            <td>refrões poderosos; músicas de celebração</td>
+                            <td>Backvocal iniciantes (tende a desafinar)</td>>
+                        </tr>
+                        <tr>
+                            <td><strong>Fá (F)</strong></td>
+                            <td>suave, íntimo</td>
+                            <td>Região média-alta confortável</td>
+                            <td>canções calmas, ministrações</td>
+                            <td>refrões muito altos (pode pedir esforçar demais)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fá# (F#)</strong></td>
+                            <td>brilhante, crescente</td>
+                            <td>zona de esforço médio</td>
+                            <td>músicas modernas sem atingir extremos</td>
+                            <td>cantores sem domínio de mix leve</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sol (G)</strong></td>
+                            <td>Forte, expansivo</td>
+                            <td>ideal para potência e projeção</td>
+                            <td>músicas de impacto e louvor forte</td>
+                            <td>vocalistas com pouca potência (exige firmeza)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sol# (G#)</strong></td>
+                            <td>tensão crescente, drama</td>
+                            <td>exige controle no agudo</td>
+                            <td>rampa final, aumento de intensidade</td>
+                            <td>igreja com congregação pequena (muito alto)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lá (A)</strong></td>
+                            <td>emotivo, moderno, expressivo</td>
+                            <td>mistura forte de peito + mix</td>
+                            <td>worship moderno, músicas vibrantes</td>
+                            <td>vocal masculino sem técnica (fraseado fica “gritado”)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lá# (A#)</strong></td>
+                            <td>cheio, poderoso</td>
+                            <td>zona de potência para todos os registros</td>
+                            <td>final de música, modulação</td>
+                            <td>vocalista sem preparo físico</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Si (B)</strong></td>
+                            <td>intenso, dramático, sublime</td>
+                            <td>região muito alta; exige técnica real</td>
+                            <td>worship profundo, atmosfera emocional</td>
+                            <td>qualquer cantor sem domínio de mix/head voice
+                             (É o tom mais arriscado da música gospel.)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-wood">
+                <div class="box-title">
+                    <span class="box-icon">💡</span>
+                    <span>DICA IMPORTANTE</span>
+                </div>
+                <p>
+                    O que esta na frente da nota (C),(D)..(B) é o que chamamos de cifra, na musica as notas são
+                    representadas por cifras, ou seja pelas letras (C) = DÓ - (D)= RÉ - (E) = MÍ - (F) = Fá - (G) = SOL
+                    (A) = LÁ - (B) = SÍ
+                </p>
+                <p></p>
+                <br>
+                <p>
+                    <b>Notas</b> com <strong>#</strong> (sustenido) são chamadas de "notas pretas do piano".
+                    Elas ficam entre as notas normais. Você não precisa decorar todas agora!
+                </p>
+            </div>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎤</span>
+                    <span>EXERCÍCIO 1</span>
+                </div>
+                <p>
+                    Escolha "Quero te conhecer" (David Quinlan). Cante só a primeira frase VÁRIAS VEZES até decorar
+                    exatamente a melodia. Você acabou de memorizar uma sequência de notas!
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 2: INTERVALOS -->
+        <section class="chapter fade-in" id="cap2">
+            <div class="chapter-header">
+                <div class="chapter-number">2</div>
+                <h2 class="chapter-title">2️⃣ Intervalos: O Segredo da Harmonia</h2>
+            </div>
+
+            <h3 class="chapter-subtitle">O que é intervalo e por que é CRUCIAL?</h3>
+
+            <p class="chapter-text">
+                Intervalo é <strong>a distância entre duas notas</strong>. Imagine que você pula do degrau "Dó"
+                pro degrau "Mi". Você pulou 2 degraus. Esse "pulo" é um intervalo!
+            </p>
+
+            <p class="chapter-text">
+                Para BACKVOCAL, entender intervalos é OBRIGATÓRIO. Por quê? Porque <strong>harmonizar é cantar
+                    em intervalos específicos</strong> em relação ao vocalista principal.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Intervalo</th>
+                            <th>Sensação</th>
+                            <th>Exemplo Gospel</th>
+                            <th>Uso no Back</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>3ª maior</strong></td>
+                            <td>✨ Brilhante</td>
+                            <td>"Creio que Tu és a cura"</td>
+                            <td><strong>90% das harmonias!</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3ª menor</strong></td>
+                            <td>😔 Emotivo</td>
+                            <td>"Lugar Secreto" (Gabriela)</td>
+                            <td>Tom menor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5ª justa</strong></td>
+                            <td>💪 Estável</td>
+                            <td>"Ruja o Leão" (início)</td>
+                            <td>Reforço, firmeza</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oitava</strong></td>
+                            <td>🎵 Mesma nota</td>
+                            <td>Homem/mulher juntos</td>
+                            <td>Dobra vocal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎯</span>
+                    <span>SEGREDO PROFISSIONAL</span>
+                </div>
+                <p>
+                    <strong>90% dos backs que você ouve são feitos com 3ª maior e 5ª justa.</strong>
+                    Se você dominar só esses dois intervalos, já consegue fazer backing de qualidade!
+                </p>
+            </div>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎤</span>
+                    <span>EXERCÍCIO 2</span>
+                </div>
+                <p>
+                    Coloque "Quero te conhecer" pra tocar. Cante junto com a melodia principal.
+                    Agora tente cantar uma 3ª acima (se ele canta Dó, você canta Mi, na musica em exemplo ele canta em Ré, então você canta em <b>Fá#</b>).
+                    Grave no celular e escute: ficou harmônico? Você fez sua PRIMEIRA HARMONIA!
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 3: ACORDES -->
+        <section class="chapter slide-in-left" id="cap3">
+            <div class="chapter-header">
+                <div class="chapter-number">3</div>
+                <h2 class="chapter-title">3️⃣ Acordes: Entendendo a Base</h2>
+            </div>
+
+            <h3 class="chapter-subtitle">Por que vocalista precisa entender acordes?</h3>
+
+            <p class="chapter-text">
+                Você não precisa tocar instrumento, mas precisa <strong>entender o que está acontecendo na
+                    harmonia</strong>.
+                Por quê? Porque a harmonia (os acordes) te dizem: quais notas são seguras para você cantar,
+                qual a cor emocional do momento, e como fazer um backing que encaixa perfeitamente.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Exemplo</th>
+                            <th>Som</th>
+                            <th>Como cantar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Maior</strong></td>
+                            <td>C, G, D</td>
+                            <td>😊 Alegre, brilhante</td>
+                            <td>Use 3ª maior</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Menor</strong></td>
+                            <td>Am, Em, Dm</td>
+                            <td>😔 Emotivo, profundo</td>
+                            <td>Use 3ª menor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7 Maior</strong></td>
+                            <td>C7M, D7M</td>
+                            <td>✨ Sofisticado</td>
+                            <td>Som "aberto"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7 (dominante)</strong></td>
+                            <td>G7, D7</td>
+                            <td>⚡ Tensão, força</td>
+                            <td>Energia crescente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-gold">
+                <div class="box-title">
+                    <span class="box-icon">💡</span>
+                    <span>ENTENDEU A LÓGICA?</span>
+                </div>
+                <p style="color: var(--black-modern);">
+                    O acorde te diz qual "cor" usar. Quando muda o acorde, você pode (e às vezes DEVE)
+                    mudar sua harmonia também! Isso cria MOVIMENTO e interesse na música.
+                </p>
+            </div>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎤</span>
+                    <span>EXERCÍCIO 3</span>
+                </div>
+                <p>
+                    Pegue uma cifra de música de sua preferencia. Procure "[nome da música] cifra" no Google.
+                    Observe os acordes. Tente identificar: são acordes maiores (alegres) ou menores (tristes)?
+                    Isso já é um baita começo!
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 4: HARMONIA VOCAL -->
+        <section class="chapter fade-in" id="cap4">
+            <div class="chapter-header">
+                <div class="chapter-number">4</div>
+                <h2 class="chapter-title">4️⃣ Harmonia Vocal: A Arte do Backvocal</h2>
+            </div>
+
+            <h3 class="chapter-subtitle">Os 4 tipos de harmonia essenciais:</h3>
+
+            <p class="chapter-text">
+                <strong>1. TERÇAS PARALELAS (90% do trabalho)</strong><br>
+                Você canta sempre uma 3ª acima (ou abaixo) do vocalista principal. Se ele canta Dó, você canta Mi.
+                É a harmonia mais usada no gospel brasileiro!
+            </p>
+
+            <p class="chapter-text">
+                <strong>2. QUINTAS PARALELAS (reforço estável)</strong><br>
+                Quinta justa é quando você canta 5 notas acima do vocalista. Se ele canta Dó, você canta Sol.
+                O som fica MUITO estável, forte. Use em refrões fortes onde você quer REFORÇAR.
+            </p>
+
+            <p class="chapter-text">
+                <strong>3. SEXTAS PARALELAS (som aberto e bonito)</strong><br>
+                Sexta é quando você canta 6 notas acima (ou 3 abaixo). Cria um som "aberto", "espaçoso".
+                Muito usado em duetos românticos e pontes emotivas.
+            </p>
+
+            <p class="chapter-text">
+                <strong>4. OITAVAS (dobra vocal)</strong><br>
+                É simplesmente cantar a mesma nota, mas uma oitava acima ou abaixo. É o que acontece quando
+                homem e mulher cantam "a mesma melodia" juntos.
+            </p>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🔥</span>
+                    <span>DICA PROFISSIONAL</span>
+                </div>
+                <p>
+                    Backs profissionais <strong>misturam os 4 tipos durante a música</strong>. Começa com 5ª no verso
+                    (reforço suave), vai pra 3ª no pré-refrão (harmonia), explode em oitava no refrão (potência),
+                    e finaliza com 6ª na ponte (emoção).
+                </p>
+            </div>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎤</span>
+                    <span>EXERCÍCIO 4</span>
+                </div>
+                <p>
+                    Escolha "Em teus braços" (Laura Souguellis). Tente identificar o tom da musica. Cante junto com a melodia principal primeiro.
+                    Agora tente fazer uma 3ª acima no refrão "Em teus braçes é meu descanço". Grave e ouça.
+                    Ficou harmônico? Se sim, PARABÉNS! Se não, tente de novo ajustando a altura.
+                </p>
+            </div>
+        </section>
+
+        <!-- BÔNUS: 10 MANDAMENTOS -->
+        <section class="chapter slide-in-left" id="bonus">
+            <div class="chapter-header">
+                <div class="chapter-number">🎁</div>
+                <h2 class="chapter-title">🎁 Os 10 Mandamentos do Backvocal Profissional</h2>
+            </div>
+
+            <ul class="mandamentos">
+                <li><strong>Nunca cante mais alto que o vocalista principal.</strong> Seu papel é SUSTENTAR, não
+                    competir.</li>
+                <li><strong>Entre no tempo EXATO, não "mais ou menos".</strong> Back que atrasa meio segundo já soa
+                    amador.</li>
+                <li><strong>Respeite os silêncios.</strong> Nem toda frase precisa de backing. Às vezes, o melhor
+                    backing é CALAR.</li>
+                <li><strong>Afinação é inegociável.</strong> Prefira fazer uma harmonia simples AFINADA do que uma
+                    complexa DESAFINADA.</li>
+                <li><strong>Estude a música ANTES do ensaio.</strong> Profissional chega no ensaio sabendo a música.
+                    Amador aprende no ensaio.</li>
+                <li><strong>Use fone de ouvido no palco quando possível.</strong> Retorno de palco nem sempre é bom.
+                    Fone te dá precisão.</li>
+                <li><strong>Grave seus ensaios e ouça criticamente.</strong> Você vai se surpreender com os erros que
+                    não percebe ao vivo.</li>
+                <li><strong>Tenha humildade para ajustar.</strong> Se o líder de louvor pedir pra você mudar alguma
+                    coisa, aceite numa boa.</li>
+                <li><strong>Conheça seu alcance vocal.</strong> Não force notas que você não alcança confortavelmente.
+                    Peça pra transpor ou mude a oitava.</li>
+                <li><strong>Invista em teoria musical.</strong> Backs que entendem teoria conseguem improvisar, transpor
+                    e criar harmonias na hora.</li>
+            </ul>
+
+            <div class="box box-amber">
+                <div class="box-title">
+                    <span class="box-icon">🎵</span>
+                    <span>CONSIDERAÇÕES FINAIS</span>
+                </div>
+                <p>
+                    <strong>Você chegou ao fim deste material!</strong> Se leu tudo e fez os exercícios,
+                    você já sabe MAIS teoria musical que 80% dos vocalistas de igreja. Sério.
+                </p>
+                <p style="margin-top: 15px;">
+                    Agora o trabalho é prático: APLICAR isso nas músicas que você canta. Teoria sem prática não serve
+                    pra nada.
+                    Prática sem teoria te limita. A combinação dos dois? Te transforma num vocalista/backvocal
+                    de excelência.
+
+                <br><br><b>Dica:</b> Se ficar com alguma dúvida, pesquise no YouTube ou na IA de sua preferência. Este documento é um ponto de partida e um apoio, mas você pode — e deve — ir além.
+
+                </p>
+                <p style="margin-top: 20px; font-size: 1.2rem;">
+                    <strong>🙏 Que Deus abençoe sua vida e te ajude em cada passo da sua evolução musical!</strong>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="church-logo" style="width: 70px; height: 70px; margin: 0 auto 20px;"></div>
+        <div class="church-name" style="font-size: 1.6rem; margin-bottom: 8px;">Lar Church</div>
+        <div class="church-slogan" style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gold-soft);">Lugar de
+            Amor e Recomeço</div>
+        <div class="footer-icon">♫</div>
+        <p><strong>Teoria Musical para ministros de louvor</strong></p>
+        <p>Material de estudo • Use livremente • Compartilhe o conhecimento</p>
+        <p style="margin-top: 15px; opacity: 0.8;">Feito para o Reino</p>
+    </footer>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </button>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Navegação aparece ao rolar
+        const nav = document.getElementById('nav');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight) {
+                nav.classList.add('visible');
+                backToTop.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll para links da navegação
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animação de entrada dos elementos ao scrollar
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os capítulos
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            chapter.style.opacity = '0';
+            chapter.style.transform = 'translateY(30px)';
+            chapter.style.transition = 'all 0.6s ease-out';
+            observer.observe(chapter);
+        });
+
+        // Log de boas-vindas no console
+        console.log('%c🏠 Lar Church', 'color: #FF8C00; font-size: 24px; font-weight: bold;');
+        console.log('%cLugar de Amor e Recomeço', 'color: #FFB74D; font-size: 16px;');
+        console.log('%c🎵 Teoria Musical Gospel', 'color: #8D6E63; font-size: 20px; font-weight: bold;');
+        console.log('%c♫ Que Deus abençoe seus estudos! ♫', 'color: #FFA726; font-size: 14px;');
+    </script>
+
+</body>
+
+</html>
